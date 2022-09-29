@@ -1,0 +1,235 @@
+
+@use './sass/layout/_globale-rrules';
+
+@use "./sass/variables/_colors" as *;
+
+//@use "./sass/helpers/mixins.scss" as *;
+
+//@use "/sass/helpers/functions.scss" as *;
+
+
+.parent  {
+    font-size: 55;
+  & > {.child {
+        color:aqua;
+    }
+     .grand-child{
+        height: unset;
+    }
+    }
+     p{
+        gap: 656px;
+    }
+}
+
+%box {
+    margin: 100px auto;
+    color: gray; 
+    font-size: 50px;
+    text-align: center;
+    }
+      
+.main{
+    background-color: red;
+    @extend %box;
+  }
+
+
+/*$heig :"fatma";
+.item{
+    @if $heig == "fatma"{
+        color: gray;
+        font-size: 75px;
+    }@else{
+        color:red;
+        font-size: 25px;
+    }
+}
+*/
+
+$direction :"ll";
+.item {
+ @extend %box ;
+    position: relative;
+    &::after{
+        content: "";
+        position: absolute;
+        border: 25px solid transparent;
+        @if $direction == "top"{
+        top: -50px;
+        left: 50%;
+        transform: translatey(-50%);
+        border-top-color: red;
+        }@else if $direction == left 
+        {
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left-color: red;
+        }@else{
+        top: 50%;
+        left: -50px;
+        transform: translateX(-50%);
+        border-right-color: green;
+
+        }
+        
+    }
+}
+
+// // the same code with mixin
+// @mixin triangle($up, $next, $coli){
+//     top: $UP;
+//     left: $next;
+//     //transform: $move;
+//     border-right-color: $coli;
+// }
+
+//MISTAKE* 
+
+.item {
+    @extend %box ;
+       position: relative;
+       &::after{
+        content: "";
+        position: absolute;
+        border: 25px solid transparent;
+    //     @include triangle(50%,50PX,BLUE);
+    //     transform: translateX(-50%);
+       }
+   }
+
+/*interporation*/
+$company: "elzero";
+$posi :  "right";
+$rounderd : "true";
+
+// .add-#{$company}{
+//     font-size: 20px;
+//     background-image: url(".img/#{$company}.png");
+//     position: #{$company};
+// }
+//comments 
+// show in sass
+/* show in sass and css*/
+/*!show in sass & css in compresd mode
+write any where
+i can write interpolation*/
+
+//mixin
+
+@mixin list-reset {
+    padding: 20px;
+    margin: 40px;
+    list-style: none;
+}
+ul.links{
+    @include list-reset()
+}
+// i can give it the vari value example
+
+    @mixin round($dimentionst,$color) {
+        border-radius: 50%;
+        background-color: $color;
+        height: $dimentionst;
+        width: $dimentionst;
+    }
+.item{
+    @include round(500px, blue);
+}
+// CALL 2 MIXIN t
+@mixin centering {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+.circle{
+    @include round(150px, gray);
+}
+.hi{
+    width: 150px;
+    height:  400px;
+    background-color: blue;
+}
+.ele {
+    .news{
+        color: gray;
+        font-size: 25px;
+    }
+}
+
+$thems: red, blue, green;
+
+@each $theme in $thems{
+    .#{$theme}-theme{font-size: 30px;
+        .product{background-color: $theme;
+            background-color: $theme;
+             font-size: 25px;
+        }
+        .child{background: $theme
+        }
+    }
+}
+//look at grid system 
+//creat grid system
+$grid-cols: 3;
+@for $i from 1 through $grid-cols {
+ .col-#{$i}{
+    width: percentage($i / $grid-cols)
+ }
+}
+//functhion
+@function half($size){
+    @return $size / 3
+}
+$height : 300;
+ .element {
+    width: half($height);
+    height: $height ;
+ }
+
+ // if i have  unkonw numbers of parameter 
+
+ @function calculate($sizes...) {
+    $total : 0;
+    @each $size in $sizes{
+     $total : $total + $size;
+    }
+       @return $total;
+ }
+
+ .fa{
+    width : 100px;
+    height: 150px;
+ }
+ .swiper{
+    width: 524px;
+    height: 211px;
+    margin: 100px auto;
+    .swiper-slide{
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        gap: 16px;
+        justify-content: center;
+    }
+    .slide__item{
+        background-color: #FAFAFA;
+        border-radius: 10px;
+        padding: 18px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        i{
+            width: 35px;
+            height: 35px;
+        }
+        h3{
+            color: #383737;
+            font-weight: 400;
+            font-size: 14px;
+        }
+    }
+ }

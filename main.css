@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+}
+
+.parent {
+  font-size: 55;
+}
+.parent > .child {
+  color: aqua;
+}
+.parent > .grand-child {
+  height: unset;
+}
+.parent p {
+  gap: 656px;
+}
+
+.item, .main {
+  margin: 100px auto;
+  color: gray;
+  font-size: 50px;
+  text-align: center;
+}
+
+.main {
+  background-color: red;
+}
+
+/*$heig :"fatma";
+.item{
+    @if $heig == "fatma"{
+        color: gray;
+        font-size: 75px;
+    }@else{
+        color:red;
+        font-size: 25px;
+    }
+}
+*/
+.item {
+  position: relative;
+}
+.item::after {
+  content: "";
+  position: absolute;
+  border: 25px solid transparent;
+  top: 50%;
+  left: -50px;
+  transform: translateX(-50%);
+  border-right-color: green;
+}
+
+.item {
+  position: relative;
+}
+.item::after {
+  content: "";
+  position: absolute;
+  border: 25px solid transparent;
+}
+
+/*interporation*/
+/* show in sass and css*/
+/*!show in sass & css in compresd mode
+write any where
+i can write interpolation*/
+ul.links {
+  padding: 20px;
+  margin: 40px;
+  list-style: none;
+}
+
+.item {
+  border-radius: 50%;
+  background-color: blue;
+  height: 500px;
+  width: 500px;
+}
+
+.circle {
+  border-radius: 50%;
+  background-color: gray;
+  height: 150px;
+  width: 150px;
+}
+
+.hi {
+  width: 150px;
+  height: 400px;
+  background-color: blue;
+}
+
+.ele .news {
+  color: gray;
+  font-size: 25px;
+}
+
+.red-theme {
+  font-size: 30px;
+}
+.red-theme .product {
+  background-color: red;
+  background-color: red;
+  font-size: 25px;
+}
+.red-theme .child {
+  background: red;
+}
+
+.blue-theme {
+  font-size: 30px;
+}
+.blue-theme .product {
+  background-color: blue;
+  background-color: blue;
+  font-size: 25px;
+}
+.blue-theme .child {
+  background: blue;
+}
+
+.green-theme {
+  font-size: 30px;
+}
+.green-theme .product {
+  background-color: green;
+  background-color: green;
+  font-size: 25px;
+}
+.green-theme .child {
+  background: green;
+}
+
+.col-1 {
+  width: 33.3333333333%;
+}
+
+.col-2 {
+  width: 66.6666666667%;
+}
+
+.col-3 {
+  width: 100%;
+}
+
+.element {
+  width: 100;
+  height: 300;
+}
+
+.fa {
+  width: 100px;
+  height: 150px;
+}
+
+.swiper {
+  width: 524px;
+  height: 211px;
+  margin: 100px auto;
+}
+.swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 16px;
+  justify-content: center;
+}
+.swiper .slide__item {
+  background-color: #FAFAFA;
+  border-radius: 10px;
+  padding: 18px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.swiper .slide__item i {
+  width: 35px;
+  height: 35px;
+}
+.swiper .slide__item h3 {
+  color: #383737;
+  font-weight: 400;
+  font-size: 14px;
+}/*# sourceMappingURL=main.css.map */
